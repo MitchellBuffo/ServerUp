@@ -1,64 +1,81 @@
-Сборка для поднятия сервера через Docker
+# Сборка для поднятия сервера через Docker
 
-<<<<<<< Установка Nginx >>>>>>>
+## Установка Nginx
 
-- sudo apt update & apt upgrade
-- sudo apt install nginx
+-> sudo apt update & apt upgrade
+-> sudo apt install nginx
 
-<<<<<<< Установка Docker >>>>>>>
+## Установка Docker >>>>>>>
 
-- Устанавливаем дополнительные пакеты
+### Устанавливаем дополнительные пакеты
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
-</code>
+-> sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
 
-- Импортируем GPG-ключ
+### Импортируем GPG-ключ
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">wget -O- https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
-</code>
+-> wget -O- https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
 
-- Добавляем репозиторий докера
+### Добавляем репозиторий докера
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable"| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-</code>
+-> echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable"| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-- Установка Docker
+### Установка Docker
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt update & apt install docker-ce -y & systemctl status docker
-</code>
+-> sudo apt update & apt install docker-ce -y & systemctl status docker
 
-<<<<<<< Установка Docker-compose >>>>>>>
+## Установка Docker-compose
 
-- Установка Git
+### Установка Git
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt-get install git
-</code>
+-> sudo apt-get install git
 
-- Клонирование репозитория с Git
+### Клонирование репозитория с Git
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">git clone https://github.com/docker/compose.git
-</code>
+-> git clone https://github.com/docker/compose.git
 
-- Загрузка Docker-compose v2.32.4
+### Загрузка Docker-compose v2.32.4
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-</code>
+-> sudo curl -L "https://github.com/docker/compose/releases/download/v2.32.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-- Изменим права доступа скачанного файла
+### Изменим права доступа скачанного файла
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo chmod +x /usr/local/bin/docker-compose
-</code>
+-> sudo chmod +x /usr/local/bin/docker-compose
 
-- Устанавливаем сам Docker-compose
+### Устанавливаем сам Docker-compose
 
-<code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt-get install docker-compose
-</code>
+-> sudo apt-get install docker-compose
 
-<<<<<<< В папке Nginx конфиг файлы >>>>>>>
+## Настройка Nginx
 
-- В папке Nginx конфиг файлы:
+### В папке Nginx конфиг файлы
 
-1. Их закинуть в /etc/nginx/sites-available
-2. Создать символические ссылки:
-   ln -s /etc/nginx/sites-available/ustarg.dev.conf /etc/nginx/sites-enabled
-   ln -s /etc/nginx/sites-available/sql.ustarg.dev.conf /etc/nginx/sites-enabled
+=> Их закинуть в /etc/nginx/sites-available
+
+### Создать символические ссылки:
+
+-> ln -s /etc/nginx/sites-available/ustarg.dev.conf /etc/nginx/sites-enabled
+-> ln -s /etc/nginx/sites-available/sql.ustarg.dev.conf /etc/nginx/sites-enabled
+
+### Прописываем домены в Hosts
+
+-> nano /etc/hosts
+127.0.0.1 ustarg.dev
+127.0.0.1 sql.ustarg.dev
+127.0.0.1 moorel.ru
+
+### Создание профиля для Ustarg.dev
+
+groupadd -g 1000 usergroup && \
+ useradd -u 1000 -g usergroup -m -s /bin/bash ustarg && \
+ echo "ustarg ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+### Создание пользователя в MySQL
+
+-> docker exec -it pma /bin/bash
+
+-> mysql -u root -p
+
+CREATE USER 'admin'@'%' IDENTIFIED BY 'L8Xddjh-Eoo7RzgXiXR4';
+GRANT ALL ON _._ TO 'admin'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit

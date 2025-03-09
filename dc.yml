@@ -2,7 +2,7 @@ services:
   # * PHP8.4 *
   php:
     container_name: php8_4
-    restart: always
+    restart: unless-stopped
     build:
       dockerfile: docker/php/Dockerfile
     volumes:
@@ -18,10 +18,10 @@ services:
   # * MySQL9 *
   mysql:
     container_name: mysql
-    image: mysql:9
-    restart: always
+    image: mysql
+    restart: unless-stopped
     ports:
-      - 3307:3307
+      - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
