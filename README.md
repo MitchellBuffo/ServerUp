@@ -5,11 +5,23 @@
 -> sudo apt update & apt upgrade
 -> sudo apt install nginx
 
+<<<<<<< HEAD
 ## Установка Docker >>>>>>>
 
 ### Устанавливаем дополнительные пакеты
 
 -> sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
+=======
+<<<<<<< Установка Docker >>>>>>>
+- Устанавливаем дополнительные пакеты
+<div data-v-637396bf="" class="wrapper wrapper__svg-is-inherit" style="width: 24px; height: 24px;">
+ <div class="copyButton--6B33">
+	<pre overflow="auto" font-size="85%" line-height="1.45" border-radius="6px">  
+	  <code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt-get install docker-compose</code>
+	</pre>
+ </div>
+</div>
+>>>>>>> c3f1a56c83f29380861c823e59a09a9c80b26bd4
 
 ### Импортируем GPG-ключ
 
