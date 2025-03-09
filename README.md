@@ -46,6 +46,7 @@ sudo apt-get install docker-compose
 </code>
 
 <<<<<<< В папке Nginx конфиг файлы >>>>>>>
+В папке Nginx конфиг файлы:
 
 1. Их закинуть в /etc/nginx/sites-available
 2. Создать символические ссылки:
