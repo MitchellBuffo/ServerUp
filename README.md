@@ -2,7 +2,7 @@
 
 ## Установка Nginx
 
--> sudo apt update & apt upgrade
+-> sudo apt update && apt upgrade
 
 -> sudo apt install nginx
 
@@ -22,7 +22,7 @@
 
 ### Установка Docker
 
--> sudo apt update & apt install docker-ce -y & systemctl status docker
+-> sudo apt update && apt install docker-ce -y && systemctl status docker
 
 ## Установка Docker-compose
 
