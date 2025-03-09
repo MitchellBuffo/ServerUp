@@ -8,15 +8,16 @@
 <<<<<<< Установка Docker >>>>>>>
 
 - Устанавливаем дополнительные пакеты
+  <div data-v-637396bf="" class="wrapper wrapper__svg-is-inherit" style="width: 24px; height: 24px;">
   <div class="copyButton--6B33">
 <pre class="core--x9b5">  
-
- 
   <code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt-get install docker-compose</code>
 </pre>
  </div>
 <code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
 </code>
+</div>
+  
 
 - Импортируем GPG-ключ
 
