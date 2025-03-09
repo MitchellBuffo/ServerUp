@@ -55,13 +55,17 @@
 ### Создать символические ссылки:
 
 -> ln -s /etc/nginx/sites-available/ustarg.dev.conf /etc/nginx/sites-enabled
+
 -> ln -s /etc/nginx/sites-available/sql.ustarg.dev.conf /etc/nginx/sites-enabled
 
 ### Прописываем домены в Hosts
 
 -> nano /etc/hosts
+
 127.0.0.1 ustarg.dev
+
 127.0.0.1 sql.ustarg.dev
+
 127.0.0.1 moorel.ru
 
 ### Создание профиля для Ustarg.dev
@@ -73,6 +77,7 @@ groupadd -g 1000 usergroup && \
 ### Запускаем докер
 
 docker-compose -f dc.yml -f dc-pma.yml up -d
+
 docker-compose -f dc.yml -f dc-pma.yml down
 
 ### Создание пользователя в MySQL
@@ -82,6 +87,9 @@ docker-compose -f dc.yml -f dc-pma.yml down
 -> mysql -u root -p
 
 CREATE USER 'admin'@'%' IDENTIFIED BY 'L8Xddjh-Eoo7RzgXiXR4';
+
 GRANT ALL ON _._ TO 'admin'@'%' WITH GRANT OPTION;
+
 FLUSH PRIVILEGES;
+
 exit
