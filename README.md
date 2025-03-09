@@ -9,11 +9,9 @@
 
 - Устанавливаем дополнительные пакеты
 
-<pre class="core--x9b5">  
 <div class="copyButton--6B33">
   <code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt-get install docker-compose</code>
 </div>
-</pre>
 
 <code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
 </code>
