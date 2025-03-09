@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Сборка для поднятия сервера через Docker
 
 Установка Nginx
@@ -26,3 +27,6 @@
 2. Создать символические ссылки:
    ln -s /etc/nginx/sites-available/ustarg.dev.conf /etc/nginx/sites-enabled
    ln -s /etc/nginx/sites-available/sql.ustarg.dev.conf /etc/nginx/sites-enabled
+=======
+t
+>>>>>>> f94c15a3c39603e002a0b1e86a1ccf8850eaa80c
