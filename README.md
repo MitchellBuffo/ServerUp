@@ -3,6 +3,7 @@
 ## Установка Nginx
 
 -> sudo apt update & apt upgrade
+
 -> sudo apt install nginx
 
 ## Установка Docker >>>>>>>
