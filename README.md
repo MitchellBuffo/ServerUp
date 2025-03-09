@@ -13,9 +13,7 @@
 - sudo apt update
 - sudo apt install docker-ce -y
 
-<pre class="core--x9b5">  
 <code class="hljs--Qdn- hljs language-undefined" data-highlighted="yes">sudo systemctl status docker</code>
-</pre>
 В папке Nginx конфиг файлы:
 
 1. Их закинуть в /etc/nginx/sites-available
